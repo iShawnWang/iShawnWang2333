@@ -1,8 +1,8 @@
 import qiniu from 'qiniu'
 
-const QINIU_OSS_BUCKET_NAME = 'ossblog'
-const accessKey = 'b9uKha4dnRpv4JAuYj7a5O6S5X1tJSzG78ddVeq0'
-const secretKey = 'iuglpy66Ny8yJQ-575IMviMYRnzZpw8XwtJIV1Xr'
+const QINIU_OSS_BUCKET_NAME = process.env.QINIU_OSS_BUCKET_NAME
+const accessKey = process.env.QINIU_OSS_ACCESSKEY
+const secretKey = process.env.QINIU_OSS_SECRETKEY
 const mac = new qiniu.auth.digest.Mac(accessKey, secretKey)
 const bucketManager = new qiniu.rs.BucketManager(mac)
 

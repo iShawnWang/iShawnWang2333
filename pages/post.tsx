@@ -14,7 +14,9 @@ const Post: NextPage<{ content: string }> = (props) => (
 export async function getServerSideProps(
   context: GetServerSidePropsContext<{ post: string }>
 ) {
-  const content = await (await F(encodeURI(context.params.post))).text()
+  const content = await (
+    await F(encodeURI(context.query.post as string))
+  ).text()
   return {
     props: { content },
   }

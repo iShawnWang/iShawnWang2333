@@ -19,7 +19,7 @@ const Posts: NextPage<{ posts: any[] }> = (props) => {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const posts = await (await F('/api/posts')).json()
   return {
     props: { posts },
