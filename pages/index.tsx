@@ -1,65 +1,118 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from 'react'
+import 'papercss/dist/paper.css'
+import 'normalize.css/normalize.css'
+import Card from 'components/Card'
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+const IndexData = [
+  {
+    title: 'BLOG',
+    links: [{ title: 'iShawn.Wang', href: '/posts' }],
+  },
+  {
+    title: 'ME',
+    links: [
+      {
+        title: 'About',
+        href:
+          'https://ishawn.wang/post?post=https://ossblog.ishawn.wang/about.md',
+      },
+      { title: 'Github', href: 'https://github.com/iShawnWang' },
+      { title: 'V2EX', href: 'https://www.v2ex.com/member/iShawnWang' },
+      {
+        title: 'Weibo',
+        href:
+          'https://weibo.com/2848310723/profile?rightmod=1&wvr=6&mod=personinfo',
+      },
+      {
+        title: 'StackOverflow',
+        href: 'https://stackoverflow.com/users/5767487/shawn-wang',
+      },
+    ],
+  },
+  {
+    title: 'WORK',
+    links: [
+      {
+        title: '@爱分类-爱回收',
+        href: 'https://www.aifenlei.com/',
+      },
+      {
+        title: '@贝壳金服',
+        href: 'https://www.bkjk.com/',
+      },
+      {
+        title: '@Strikingly',
+        href: 'https://strikingly.com',
+      },
+    ],
+  },
+  {
+    title: 'ANNOYING',
+    links: [
+      {
+        title: 'instant Chat',
+        href:
+          'https://zh.wikipedia.org/wiki/%E5%8D%B3%E6%99%82%E9%80%9A%E8%A8%8A',
+      },
+      {
+        title: 'password',
+        href:
+          'https://zh.wikipedia.org/wiki/%E5%AF%86%E7%A2%BC_(%E5%AF%86%E7%A2%BC%E5%AD%B8)',
+      },
+    ],
+  },
+]
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+const THEME_MAP = {
+  DARK: {
+    '--paper-bg-color': '#222222',
+    '--paper-content-color': '#dddddd',
+    '--paper-border-color': '#ededed',
+    '--paper-shadow-color': 'rgba(255, 255, 255, 0.2)',
+    '--html-bg-color': '#272C35',
+  },
+  LIGHT: {
+    '--paper-bg-color': '#f8f8fb',
+    '--paper-content-color': '#41403e',
+    '--paper-border-color': '#c1c0bd',
+    '--paper-shadow-color': 'rgba(0, 0, 0, 0.2)',
+    '--html-bg-color': '#f8f8fb',
+  },
 }
+
+const onThemeChange = (switzh) => {
+  const mode = switzh.target.checked ? 'DARK' : 'LIGHT'
+  Object.keys(THEME_MAP[mode]).forEach((k) => {
+    document.body.style.setProperty(k, THEME_MAP[mode][k])
+  })
+}
+
+const Index = () => (
+  <>
+    <div
+      className="paper"
+      style={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <h2 className="big-title">@iShawnWang</h2>
+      <div>
+        {IndexData.map((card, index) => (
+          <Card card={card} key={card.title} index={index} />
+        ))}
+      </div>
+      <label className="switch">
+        <input type="checkbox" onChange={onThemeChange} />
+        <span className="slider round" />
+      </label>
+      <blockquote className="bottom-quote">
+        Simplicity is the ultimate sophistication. - Leonardo da Vinci
+      </blockquote>
+    </div>
+  </>
+)
+
+export default Index
