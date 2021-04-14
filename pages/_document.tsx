@@ -11,7 +11,6 @@ export default class MyDocument extends Document {
           href="0nkwC9f7MfsBiWcLtY65AWDK873ljiK7BwQrVw.woff2"
           as="font"
           type="font/woff2"
-          crossOrigin="true"
         />
         <body>
           <Main />
