@@ -6,11 +6,6 @@ const secretKey = process.env.QINIU_OSS_SECRETKEY
 const mac = new qiniu.auth.digest.Mac(accessKey, secretKey)
 const bucketManager = new qiniu.rs.BucketManager(mac)
 
-console.log('000000000000000000000000000000000')
-console.log(process.env.QINIU_OSS_BUCKET_NAME)
-console.log(process.env.QINIU_OSS_ACCESSKEY)
-console.log(process.env.QINIU_OSS_SECRETKEY)
-
 export const getAllPosts = () => {
   return new Promise((resolve, reject) => {
     bucketManager.listPrefix(
