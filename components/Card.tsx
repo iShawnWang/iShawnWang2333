@@ -3,7 +3,7 @@ import cx from 'classnames'
 import Link from 'next/link'
 
 const ALink = ({ link }) => (
-  <div style={{ padding: '0.1em 0.5em' }}>
+  <div style={{ padding: '0.1rem 0.5rem' }}>
     <Link href={{ pathname: link.href }}>
       <a>{link.title}</a>
     </Link>
@@ -15,7 +15,7 @@ const Card = ({ card, index }) => {
   return (
     <div
       className={cx('section border shadow', borderStyle)}
-      style={{ padding: '1em' }}
+      style={{ padding: '1rem' }}
     >
       <h3 className="padding-small">{card.title}</h3>
       {card.links.map((link) => (
