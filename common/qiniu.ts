@@ -24,7 +24,7 @@ export const getAllPosts = () => {
             ?.map((file) => {
               file.url =
                 'https://ossblog.ishawn.wang/' + encodeURIComponent(file.key)
-              file.name = file.key
+              file.name = file.key.replace(/\.[^/.]+$/, '')
               return file
             })
             .filter((file) => !file.name.startsWith('_'))
