@@ -15,6 +15,6 @@ const SentryWebpackPluginOptions = {
 module.exports = {
   ...withSentryConfig({}, SentryWebpackPluginOptions),
   future: {
-    webpack5: true,
+    webpack5: false,
   },
 }
