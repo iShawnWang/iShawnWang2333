@@ -1,6 +1,4 @@
 import React from 'react'
-import 'papercss/dist/paper.css'
-import 'normalize.css/normalize.css'
 import Card from 'components/Card'
 
 const IndexData = [
