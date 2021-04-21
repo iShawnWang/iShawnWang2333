@@ -1,11 +1,5 @@
 const { withSentryConfig } = require('@sentry/nextjs')
 
-const moduleExports = {
-  future: {
-    webpack5: true,
-  },
-}
-
 const SentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that
   // the following options are set automatically, and overriding them is not
@@ -18,4 +12,9 @@ const SentryWebpackPluginOptions = {
 
 // Make sure adding Sentry options is the last code to run before exporting, to
 // ensure that your source maps include changes from all other Webpack plugins
-module.exports = withSentryConfig(moduleExports, SentryWebpackPluginOptions)
+module.exports = {
+  ...withSentryConfig({}, SentryWebpackPluginOptions),
+  future: {
+    webpack5: true,
+  },
+}
