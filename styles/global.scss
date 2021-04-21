@@ -50,7 +50,9 @@
 }
 
 * {
-  transition: all 0.375s ease-out !important;
+  transition-property: color, border, box-shadow, background-color;
+  transition-timing-function: ease-out;
+  transition-duration: 0.375s;
 }
 
 html {
