@@ -4,14 +4,14 @@ import Card from 'components/Card'
 const IndexData = [
   {
     title: 'BLOG',
-    links: [{ title: 'iShawn.Wang', href: '/posts' }],
+    links: [{ title: 'iShawn.Wang', href: '/post' }],
   },
   {
     title: 'ME',
     links: [
       {
         title: 'About',
-        href: `${process.env.NEXT_PUBLIC_ORIGIN}/post?post=${encodeURIComponent(
+        href: `${process.env.NEXT_PUBLIC_ORIGIN}/post/${encodeURIComponent(
           process.env.NEXT_PUBLIC_OSS_ORIGIN + '/about.md'
         )}`,
       },
