@@ -11,8 +11,9 @@ const IndexData = [
     links: [
       {
         title: 'About',
-        href:
-          'https://ishawn.wang/post?post=https://ossblog.ishawn.wang/about.md',
+        href: `${process.env.NEXT_PUBLIC_ORIGIN}/post?post=${encodeURIComponent(
+          process.env.NEXT_PUBLIC_OSS_ORIGIN + '/about.md'
+        )}`,
       },
       { title: 'Github', href: 'https://github.com/iShawnWang' },
       { title: 'V2EX', href: 'https://www.v2ex.com/member/iShawnWang' },

@@ -23,7 +23,9 @@ export const getAllPosts = () => {
           content?.items
             ?.map((file) => {
               file.url =
-                'https://ossblog.ishawn.wang/' + encodeURIComponent(file.key)
+                process.env.NEXT_PUBLIC_OSS_ORIGIN +
+                '/' +
+                encodeURIComponent(file.key)
               file.name = file.key.replace(/\.[^/.]+$/, '')
               return file
             })

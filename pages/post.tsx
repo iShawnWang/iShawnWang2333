@@ -14,9 +14,9 @@ const Post: NextPage<{ content: string }> = (props) => (
 export async function getServerSideProps(
   context: GetServerSidePropsContext<{ post: string }>
 ) {
-  const content = await (
-    await F(encodeURI(context.query.post as string))
-  ).text()
+  const { content } = await (
+    await F(`/api/posts/${encodeURIComponent(context.query.post as string)}`)
+  ).json()
   return {
     props: { content },
   }
