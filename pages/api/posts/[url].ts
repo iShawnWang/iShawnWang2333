@@ -1,8 +1,14 @@
-import { F } from 'common'
+import { F, LRUMemoryStorage } from 'common'
 import { NextApiRequest } from 'next'
 
 export default async function handler(req: NextApiRequest, res) {
-  const { url } = req.query
-  const content = await (await F(encodeURI(url as string))).text()
-  res.status(200).json({ content })
+  const url = req.query.url as string
+  const cached = LRUMemoryStorage.getItem(url)
+  if (cached) {
+    res.status(200).json({ content: cached })
+  } else {
+    const content = await (await F(encodeURI(url))).text()
+    res.status(200).json({ content })
+    LRUMemoryStorage.setItem(url, content)
+  }
 }

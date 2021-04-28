@@ -7,7 +7,7 @@ const mac = new qiniu.auth.digest.Mac(accessKey, secretKey)
 const bucketManager = new qiniu.rs.BucketManager(mac)
 
 export const getAllPosts = () => {
-  return new Promise((resolve, reject) => {
+  return new Promise<any[]>((resolve, reject) => {
     bucketManager.listPrefix(
       QINIU_OSS_BUCKET_NAME,
       {
