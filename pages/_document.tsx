@@ -6,12 +6,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head />
-        <link
-          rel="preload"
-          href="/0nkwC9f7MfsBiWcLtY65AWDK873ljiK7BwQrVw.woff2"
-          as="font"
-          type="font/woff2"
-        />
         <body>
           <Main />
           <NextScript />

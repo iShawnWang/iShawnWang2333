@@ -4,7 +4,7 @@ import Card from 'components/Card'
 const IndexData = [
   {
     title: 'BLOG',
-    links: [{ title: 'iShawn.Wang', href: '/post' }],
+    links: [{ title: 'iShawn.Wang', href: '/posts' }],
   },
   {
     title: 'ME',

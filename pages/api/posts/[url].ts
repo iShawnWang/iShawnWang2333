@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res) {
   if (cached) {
     res.status(200).json({ content: cached })
   } else {
-    const content = await (await F(encodeURI(url))).text()
+    const content = await (await F(url)).text()
     res.status(200).json({ content })
     LRUMemoryStorage.setItem(url, content)
   }

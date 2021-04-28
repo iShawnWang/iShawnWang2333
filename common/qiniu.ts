@@ -22,10 +22,9 @@ export const getAllPosts = () => {
         resolve(
           content?.items
             ?.map((file) => {
-              file.url =
-                process.env.NEXT_PUBLIC_OSS_ORIGIN +
-                '/' +
-                encodeURIComponent(file.key)
+              file.url = encodeURI(
+                process.env.NEXT_PUBLIC_OSS_ORIGIN + '/' + file.key
+              )
               file.name = file.key.replace(/\.[^/.]+$/, '')
               return file
             })

@@ -9,7 +9,7 @@ const Posts: NextPage<{ posts: any[] }> = (props) => {
       <div className="paper">
         {props.posts.map((p) => (
           <div className="margin-small" key={p.hash}>
-            <Link href={`/post?post=${p.url}`}>
+            <Link href={`/post/${encodeURIComponent(p.url)}`}>
               <a>{p.name}</a>
             </Link>
           </div>
