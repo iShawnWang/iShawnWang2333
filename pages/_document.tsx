@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
         <Head />
         <link
           rel="preload"
-          href="0nkwC9f7MfsBiWcLtY65AWDK873ljiK7BwQrVw.woff2"
+          href="/0nkwC9f7MfsBiWcLtY65AWDK873ljiK7BwQrVw.woff2"
           as="font"
           type="font/woff2"
         />
