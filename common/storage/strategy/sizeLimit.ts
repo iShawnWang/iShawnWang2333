@@ -1,13 +1,10 @@
-import { IMyStorage } from '../types'
+import { IStorage } from '../types'
 
-export const withSizeLimt = (
-  storage: IMyStorage,
-  option: { limit: number }
-) => {
+export const withSizeLimt = (storage: IStorage, option: { limit: number }) => {
   return new Proxy(storage, {
     get(target, key) {
       if (key === 'setItem') {
-        const wrappedSetItem: IMyStorage['setItem'] = (
+        const wrappedSetItem: IStorage['setItem'] = (
           key: string,
           value: string
         ) => {

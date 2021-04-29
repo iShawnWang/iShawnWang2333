@@ -1,9 +1,9 @@
-export interface _Store {
+export interface IStore {
   [key: string]: any
 }
 
-export interface IMyStorage extends Storage {
-  getStore: () => _Store
+export interface IStorage extends Storage {
+  getStore: () => IStore
 }
 
 export interface IStrategy {}

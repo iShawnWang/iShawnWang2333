@@ -1,7 +1,7 @@
-import { IMyStorage, _Store } from './types'
+import { IStorage, IStore } from './types'
 
-export class _MemoryStorage implements IMyStorage {
-  private _s: _Store = {}
+export class MemoryStorage implements IStorage {
+  private _s: IStore = {}
 
   get length(): number {
     return Object.keys(this._s).length
@@ -47,4 +47,4 @@ export class _MemoryStorage implements IMyStorage {
   }
 }
 
-export const MemoryStorage = new _MemoryStorage()
+export const MemoryStorageInstance = new MemoryStorage()
