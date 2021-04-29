@@ -11,7 +11,7 @@ const IndexData = [
     links: [
       {
         title: 'About',
-        href: `${process.env.NEXT_PUBLIC_ORIGIN}/post/${encodeURIComponent(
+        href: `${process.env.NEXT_PUBLIC_ORIGIN}/post?post=${encodeURIComponent(
           process.env.NEXT_PUBLIC_OSS_ORIGIN + '/about.md'
         )}`,
       },

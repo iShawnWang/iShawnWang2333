@@ -1,14 +1,15 @@
 import React from 'react'
 import cx from 'classnames'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-const ALink = ({ link }) => (
-  <div style={{ padding: '0.1rem 0.5rem' }}>
-    <Link href={{ pathname: link.href }}>
-      <a>{link.title}</a>
-    </Link>
-  </div>
-)
+const ALink = ({ link }) => {
+  const router = useRouter()
+  return (
+    <div style={{ padding: '0.1rem 0.5rem' }}>
+      <a onClick={() => router.push(link.href)}>{link.title}</a>
+    </div>
+  )
+}
 
 const Card = ({ card, index }) => {
   const borderStyle = `border-${(index % 5) + 1}`

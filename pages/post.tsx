@@ -15,7 +15,15 @@ export async function getServerSideProps(
   context: GetServerSidePropsContext<{ post: string }>
 ) {
   const { content } = await (
-    await F(`/api/posts/${encodeURIComponent(context.query.post as string)}`)
+    await F(`/api/posts`, {
+      method: 'POST',
+      body: JSON.stringify({
+        post: context.query.post as string,
+      }),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    })
   ).json()
   return {
     props: { content },
