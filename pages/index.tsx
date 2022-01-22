@@ -32,6 +32,10 @@ const IndexData = [
     title: 'WORK',
     links: [
       {
+        title: '@众安科技',
+        href: 'https://zhongan.io',
+      },
+      {
         title: '@爱分类-爱回收',
         href: 'https://www.aifenlei.com/',
       },
