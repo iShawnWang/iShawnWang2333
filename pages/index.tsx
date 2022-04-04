@@ -32,7 +32,7 @@ const IndexData = [
     title: 'MBTI',
     links: [
       { 
-        title: 'Assertive Architect(INTJ-A)'
+        title: 'Assertive Architect(INTJ-A)',
         href: 'https://www.16personalities.com/profiles/3ae5522cb6db6'
       },
     ],
